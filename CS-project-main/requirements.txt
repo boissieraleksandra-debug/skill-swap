@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+scikit-learn
+resend
+python-dotenv

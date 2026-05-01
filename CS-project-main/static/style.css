@@ -1,0 +1,356 @@
+/* static/style.css
+   gigly — professional purple design system.
+   Loaded by ui.load_css() at the top of every page. */
+
+:root {
+    --gigly-primary:        #7C3AED;
+    --gigly-primary-deep:   #5B21B6;
+    --gigly-primary-soft:   #EDE5FC;
+    --gigly-accent:         #A78BFA;
+    --gigly-bg:             #FAFAFC;
+    --gigly-surface:        #FFFFFF;
+    --gigly-surface-alt:    #F3F0FB;
+    --gigly-text:           #1B1530;
+    --gigly-text-muted:     #5B5876;
+    --gigly-text-subtle:    #8E8AA8;
+    --gigly-border:         #E8E4F3;
+    --gigly-border-strong:  #D5CCEC;
+    --gigly-success:        #10B981;
+    --gigly-warning:        #F59E0B;
+    --gigly-danger:         #EF4444;
+    --gigly-shadow-sm:      0 1px 2px rgba(28, 21, 48, 0.04);
+    --gigly-shadow-md:      0 4px 14px rgba(91, 33, 182, 0.08);
+}
+
+/* ---- App shell --------------------------------------------------------- */
+html, body, [data-testid="stAppViewContainer"] {
+    background: var(--gigly-bg);
+    color: var(--gigly-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: -0.005em;
+}
+
+.block-container {
+    max-width: 520px;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+/* ---- Typography -------------------------------------------------------- */
+h1, h2, h3, h4 {
+    color: var(--gigly-text);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 1.85rem;
+    line-height: 1.15;
+    margin-bottom: 0.35rem;
+}
+
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.15rem; }
+
+p, li, .stMarkdown {
+    color: var(--gigly-text);
+    line-height: 1.55;
+}
+
+[data-testid="stCaptionContainer"], .stCaption {
+    color: var(--gigly-text-muted) !important;
+    font-size: 0.86rem;
+}
+
+/* ---- Cards (st.markdown <div class="card">) ---------------------------- */
+.card {
+    border: 1px solid var(--gigly-border);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 0.9rem;
+    background: var(--gigly-surface);
+    box-shadow: var(--gigly-shadow-sm);
+    transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.card:hover {
+    box-shadow: var(--gigly-shadow-md);
+    border-color: var(--gigly-border-strong);
+}
+
+/* Industry color accents (left border strip). */
+.card.marketing      { border-left: 3px solid #EC4899; }
+.card.tech           { border-left: 3px solid var(--gigly-primary); }
+.card.finance        { border-left: 3px solid #10B981; }
+.card.sustainability { border-left: 3px solid #06B6D4; }
+.card.design         { border-left: 3px solid var(--gigly-accent); }
+
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0.1rem 0;
+    color: var(--gigly-text);
+}
+
+.card-subtitle {
+    color: var(--gigly-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+
+.card-meta {
+    color: var(--gigly-text-subtle);
+    font-size: 0.8rem;
+}
+
+/* ---- Streamlit native containers (st.container(border=True)) ----------- */
+[data-testid="stVerticalBlockBorderWrapper"] > div:has(> [data-testid="stVerticalBlock"]) {
+    /* Streamlit applies border via inline style — we just polish it. */
+}
+
+div[data-testid="stVerticalBlock"] > div[style*="border"] {
+    border-color: var(--gigly-border) !important;
+    border-radius: 14px !important;
+    background: var(--gigly-surface);
+    box-shadow: var(--gigly-shadow-sm);
+}
+
+/* ---- Pills ------------------------------------------------------------- */
+.score-pill {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 999px;
+    background: var(--gigly-primary-soft);
+    color: var(--gigly-primary-deep);
+    font-weight: 600;
+    font-size: 0.82rem;
+    margin-left: 0.4rem;
+    letter-spacing: 0.01em;
+}
+
+.industry-pill {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 999px;
+    background: var(--gigly-surface-alt);
+    color: var(--gigly-text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 3px 11px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+.status-pill.pending   { background: #FEF3C7; color: #92400E; }
+.status-pill.accepted  { background: #D1FAE5; color: #065F46; }
+.status-pill.declined  { background: #FEE2E2; color: #991B1B; }
+.status-pill.completed { background: var(--gigly-primary-soft); color: var(--gigly-primary-deep); }
+.status-pill.open      { background: #D1FAE5; color: #065F46; }
+.status-pill.in_progress { background: #FEF3C7; color: #92400E; }
+.status-pill.done      { background: var(--gigly-primary-soft); color: var(--gigly-primary-deep); }
+
+/* ---- Buttons ----------------------------------------------------------- */
+.stButton > button {
+    border-radius: 10px;
+    padding: 0.6rem 1.15rem;
+    font-weight: 500;
+    border: 1px solid var(--gigly-border-strong);
+    background: var(--gigly-surface);
+    color: var(--gigly-text);
+    transition: all 0.15s ease;
+}
+
+.stButton > button:hover {
+    border-color: var(--gigly-primary);
+    color: var(--gigly-primary-deep);
+    background: var(--gigly-primary-soft);
+}
+
+.stButton > button:focus:not(:active) {
+    border-color: var(--gigly-primary);
+    color: var(--gigly-primary-deep);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+/* Primary buttons: filled purple. */
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="baseButton-primary"] {
+    background: var(--gigly-primary);
+    color: #FFFFFF;
+    border: 1px solid var(--gigly-primary);
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(91, 33, 182, 0.15);
+}
+
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="baseButton-primary"]:hover {
+    background: var(--gigly-primary-deep);
+    border-color: var(--gigly-primary-deep);
+    color: #FFFFFF;
+}
+
+/* Form submit buttons follow the same rules. */
+.stFormSubmitButton > button {
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.stFormSubmitButton > button[kind="primary"] {
+    background: var(--gigly-primary);
+    color: #FFFFFF;
+    border: 1px solid var(--gigly-primary);
+}
+
+.stFormSubmitButton > button[kind="primary"]:hover {
+    background: var(--gigly-primary-deep);
+    border-color: var(--gigly-primary-deep);
+}
+
+/* ---- Inputs ------------------------------------------------------------ */
+.stTextInput > div > div > input,
+.stTextArea textarea,
+.stSelectbox > div > div,
+.stMultiSelect > div > div {
+    border-radius: 9px !important;
+    border-color: var(--gigly-border) !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea textarea:focus {
+    border-color: var(--gigly-primary) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12) !important;
+}
+
+/* ---- Metrics (KPI tiles) ---------------------------------------------- */
+[data-testid="stMetric"] {
+    background: var(--gigly-surface);
+    border: 1px solid var(--gigly-border);
+    border-radius: 12px;
+    padding: 0.85rem 0.9rem;
+    box-shadow: var(--gigly-shadow-sm);
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--gigly-text-muted) !important;
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--gigly-text) !important;
+    font-weight: 700 !important;
+    font-size: 1.7rem !important;
+}
+
+/* ---- Sidebar ----------------------------------------------------------- */
+[data-testid="stSidebar"] {
+    background: var(--gigly-surface);
+    border-right: 1px solid var(--gigly-border);
+}
+
+[data-testid="stSidebarNav"] {
+    padding-top: 0.5rem;
+}
+
+[data-testid="stSidebar"] .stPageLink a {
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    color: var(--gigly-text-muted);
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+[data-testid="stSidebar"] .stPageLink a:hover {
+    background: var(--gigly-primary-soft);
+    color: var(--gigly-primary-deep);
+}
+
+/* gigly wordmark in the sidebar. */
+.gigly-wordmark {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--gigly-primary), var(--gigly-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.25rem;
+}
+
+.gigly-tagline {
+    color: var(--gigly-text-subtle);
+    font-size: 0.78rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* ---- Hero (landing) ---------------------------------------------------- */
+.gigly-hero {
+    text-align: left;
+    padding: 0.5rem 0 1rem 0;
+}
+
+.gigly-hero-mark {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--gigly-primary), var(--gigly-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+}
+
+.gigly-hero-sub {
+    color: var(--gigly-text);
+    font-size: 1.15rem;
+    line-height: 1.45;
+    font-weight: 500;
+    max-width: 26rem;
+}
+
+.gigly-hero-meta {
+    color: var(--gigly-text-muted);
+    font-size: 0.92rem;
+    margin-top: 0.4rem;
+}
+
+/* ---- Dividers ---------------------------------------------------------- */
+hr, [data-testid="stDivider"] {
+    border-color: var(--gigly-border) !important;
+    margin: 1rem 0;
+}
+
+/* ---- Alerts (st.success / info / warning) ------------------------------ */
+[data-testid="stAlert"] {
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+
+/* ---- Expanders --------------------------------------------------------- */
+[data-testid="stExpander"] {
+    border: 1px solid var(--gigly-border) !important;
+    border-radius: 10px !important;
+    background: var(--gigly-surface);
+}
+
+[data-testid="stExpander"] summary {
+    color: var(--gigly-text);
+    font-weight: 500;
+}
+
+/* ---- Footer ----------------------------------------------------------- */
+footer { visibility: hidden; }
+
+/* ---- Toolbar / deploy button ------------------------------------------ */
+[data-testid="stToolbar"] { display: none; }

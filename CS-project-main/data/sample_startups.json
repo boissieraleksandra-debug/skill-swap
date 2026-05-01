@@ -1,0 +1,47 @@
+[
+  {
+    "name": "BrightCart",
+    "email": "hello@brightcart.io",
+    "phone": "+41 44 555 0101",
+    "industry": "Marketing",
+    "description": "We help D2C brands build social-first ad campaigns. Small team of 8, based in Zurich.",
+    "website": "https://brightcart.io",
+    "logo_filename": null
+  },
+  {
+    "name": "Latch Labs",
+    "email": "team@latchlabs.dev",
+    "phone": "+41 44 555 0202",
+    "industry": "Tech",
+    "description": "Building developer tools for healthcare APIs. Series-A, fully remote.",
+    "website": "https://latchlabs.dev",
+    "logo_filename": null
+  },
+  {
+    "name": "Pivotr",
+    "email": "careers@pivotr.com",
+    "phone": "+41 44 555 0303",
+    "industry": "Finance",
+    "description": "Wealth management platform for early-career professionals. 12 people, Zurich + remote.",
+    "website": "https://pivotr.com",
+    "logo_filename": null
+  },
+  {
+    "name": "Fernpath",
+    "email": "info@fernpath.eco",
+    "phone": "+41 44 555 0404",
+    "industry": "Sustainability",
+    "description": "Carbon accounting for small businesses. Climate-tech startup, mission-driven.",
+    "website": "https://fernpath.eco",
+    "logo_filename": null
+  },
+  {
+    "name": "Studio Halfmoon",
+    "email": "hi@halfmoon.studio",
+    "phone": "+41 44 555 0505",
+    "industry": "Design",
+    "description": "Brand and product design studio working with European fintech and consumer startups.",
+    "website": "https://halfmoon.studio",
+    "logo_filename": null
+  }
+]
